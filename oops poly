@@ -1,0 +1,27 @@
+using System;
+
+public class polyadd
+{
+    public int add(int a, int b)
+    {
+        return a + b;
+    }
+
+    public string add(string str1, string str2)
+    {
+        return str1 + str2;
+    }
+}
+
+class pro
+{
+    static void Main(string[] args)
+    {
+        polyadd p = new polyadd();
+        int i = p.add(50, 50);
+        string str = p.add("sathvik", "ketan");
+        
+        Console.WriteLine(i); // Print the integer result
+        Console.WriteLine(str); // Print the string result
+    }
+}
