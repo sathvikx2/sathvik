@@ -1,0 +1,49 @@
+
+public interface IElectronicDevice
+{
+    void TurnOn();  
+    void TurnOff();
+}
+
+// Implement the interface in a class
+public class Television : IElectronicDevice
+{
+    public void TurnOn()
+    {
+        Console.WriteLine("The TV is now ON.");
+    }
+
+    public void TurnOff()
+    {
+        Console.WriteLine("The TV is now OFF.");
+    }
+}
+
+public class Smartphone : IElectronicDevice
+{
+    public void TurnOn()
+    {
+        Console.WriteLine("The smartphone is now ON.");
+    }
+
+    public void TurnOff()
+    {
+        Console.WriteLine("The smartphone is now OFF.");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Television tv = new Television();
+        Smartphone phone = new Smartphone();
+
+        // Using the interface methods
+        tv.TurnOn();
+        tv.TurnOff();
+
+        phone.TurnOn();
+        phone.TurnOff();
+    }
+}
