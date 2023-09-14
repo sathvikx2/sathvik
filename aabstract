@@ -1,0 +1,36 @@
+using System;
+
+namespace MyApplication
+{
+  
+  abstract class gun
+  {
+    
+    public abstract void gunSound();
+    
+    public void sound()
+    {
+      Console.WriteLine("pheu pheu");
+    }
+  }
+  
+  
+  class bomb : gun
+  {
+    public override void gunSound()
+    {
+      
+      Console.WriteLine("ching ching");
+    }
+  }
+
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      bomb b = new bomb(); 
+      b.gunSound();
+      b.sound();
+    }
+  }
+}
