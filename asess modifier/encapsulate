@@ -1,0 +1,57 @@
+using System;
+
+public class User 
+{
+    private string _username; 
+    private string _password; 
+    
+    public string Username
+    {
+        get
+        {
+            return _username; 
+        }
+        set
+        {
+            if(value.Length >= 4 && value.Length <= 10) 
+            {
+                _username = value; 
+            }
+            else
+            {
+                Console.WriteLine("Username invalid");
+            }
+        }
+    }
+    
+    public string Password
+    {
+        get
+        {
+            return _password; 
+        }
+        set
+        {
+            if(value.Length >= 4 && value.Length <= 10)   
+            {
+                _password = value;
+            }
+            else
+            {
+                Console.WriteLine("Password invalid");
+            }
+        }
+    }
+}
+
+class Author
+{
+    static void Main() 
+    {
+        User u = new User(); 
+        u.Username = "abcd";
+        u.Password = "1234";
+         Console.WriteLine(u.Username);
+         
+    }
+}
