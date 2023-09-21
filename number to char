@@ -1,0 +1,42 @@
+using System;
+
+class Program
+{
+    static string[] units = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+    static string[] teens = { "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+    static string[] tens = { "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+
+    static string NumberToWords(int num)
+    {
+        if (num == 0)
+            return "zero";
+
+        return ConvertNumber(num);
+    }
+
+    static string ConvertNumber(int num)
+    {
+        if (num < 10)
+            return units[num];
+        else if (num < 20)
+            return teens[num - 11];
+        else if (num < 100)
+            return tens[num / 10] + (num % 10 != 0 ? " " + ConvertNumber(num % 10) : "");
+        else if (num < 1000)
+            return units[num / 100] + " hundred" + (num % 100 != 0 ? " and " + ConvertNumber(num % 100) : "");
+        else if (num < 1000000)
+            return ConvertNumber(num / 1000) + " thousand" + (num % 1000 != 0 ? " " + ConvertNumber(num % 1000) : "");
+        else
+            return "Number is too large to convert.";
+    }
+
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        int number = Convert.ToInt32(Console.ReadLine());
+
+        string result = NumberToWords(number);
+
+        Console.WriteLine("In words: " + result);
+    }
+}
