@@ -1,0 +1,48 @@
+using System;
+
+class Person
+{
+    public string Name;
+    public int Age;
+
+    // Constructor with no parameters
+    public Person()
+    {
+        Name = "Unknown";
+        Age = 0;
+    }
+
+    // Constructor with name parameter
+    public Person(string name)
+    {
+        Name = name;
+        Age = 0;
+    }
+
+    // Constructor with name and age parameters
+    public Person(string name, int age)
+    {
+        Name = name;
+        Age = age;
+    }
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine($"Name: {Name}, Age: {Age}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Using different constructors
+        Person defaultPerson = new Person();
+        Person namedPerson = new Person("John Doe");
+        Person john = new Person("John Doe", 30);
+
+        defaultPerson.DisplayInfo();
+        namedPerson.DisplayInfo();
+        john.DisplayInfo();
+    }
+}
