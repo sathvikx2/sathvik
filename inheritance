@@ -1,0 +1,37 @@
+using System;
+
+public class sathvik
+{
+    public virtual void rank()
+    {
+        Console.WriteLine("Global");
+    }
+}
+
+public class ketan : sathvik
+{
+    public override void rank()
+    {
+        Console.WriteLine("supreme");
+    }
+}
+
+public class abhi : sathvik
+{
+    public override void rank()
+    {
+        Console.WriteLine("master");
+    }
+}
+
+public class program
+{
+    public static void Main(string[] args)
+    {
+        sathvik s = new sathvik();
+        sathvik k = new ketan();
+        sathvik a = new abhi();
+
+        k.rank();
+    }
+}
