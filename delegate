@@ -1,0 +1,25 @@
+using System;
+
+delegate void Cal(int x, int y);
+
+class Program
+{
+    public static void Add(int a, int b) 
+    {
+        Console.WriteLine(a + b);
+    }
+    
+    public static void Mul(int a, int b) 
+    {
+        Console.WriteLine(a * b);
+    }
+}
+
+public class Pro
+{
+    public static void Main(string[] args)
+    {
+        Cal c = new Cal(Program.Add); 
+        c(20, 30);
+    }
+}
