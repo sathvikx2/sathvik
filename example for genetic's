@@ -1,0 +1,31 @@
+using System;
+
+public class GenericExample<T>
+{
+    private T genericMemberVariable;
+
+    public GenericExample(T value)
+    {
+        genericMemberVariable = value;
+    }
+
+    public void PrintGenericValue()
+    {
+        Console.WriteLine($"The generic value is: {genericMemberVariable}");
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        // Example with integers
+        GenericExample<int> intExample = new GenericExample<int>(10);
+        intExample.PrintGenericValue();
+
+        // Example with strings
+        GenericExample<string> stringExample = new GenericExample<string>("Hello, world!");
+        stringExample.PrintGenericValue();
+    }
+}
+    
