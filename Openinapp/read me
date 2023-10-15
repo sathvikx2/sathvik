@@ -1,0 +1,66 @@
+This Python code defines a function called translate_to_hinglish that translates English text to Hinglish. Here's an explanation of the code:
+
+Imports:
+
+from googletrans import Translator: This imports the Translator class from the googletrans library. The Translator class allows you to use Google Translate to perform text translations.
+from indic_transliteration import sanscript: This imports the sanscript module from the indic_transliteration library. This module provides functions for transliterating text between different Indic scripts.
+from indic_transliteration.sanscript import transliterate: This imports the transliterate function from the sanscript module.
+translate_to_hinglish Function:
+
+This function takes one argument, text, which is the English text that you want to translate to Hinglish.
+
+Inside the function:
+
+translator = Translator(): This creates an instance of the Translator class, which you can use to perform translations.
+translated_text = translator.translate(text, src='en', dest='hi').text: This line uses the translate method of the Translator class to translate the text from English (src='en') to Hindi (dest='hi'). It then extracts the translated text using .text.
+hinglish_text = transliterate(translated_text, sanscript.DEVANAGARI, sanscript.ITRANS): This line transliterates the translated Hindi text (translated_text) from the Devanagari script to the ITRANS script. The ITRANS script is commonly used for representing Indic languages in Romanized form.
+Finally, the function returns the transliterated Hinglish text.
+
+Example Usage:
+
+english_text = "I had about a 30 minute demo just using this new headset": This line defines an example English text.
+output_hinglish = translate_to_hinglish(english_text): This calls the translate_to_hinglish function with english_text as an argument. It will perform the translation and return the Hinglish text.
+print(output_hinglish): This prints the Hinglish text to the console.
+In summary, this code defines a function that translates English text to Hinglish using Google Translate and then transliterates the Hindi text to Hinglish using the ITRANS script. The example provided demonstrates the usage of this function.
+           PART-2
+This Python code defines two functions: translate_to_hindi and mix_languages. These functions work together to create a mixed language text by translating short English words (between 3 and 7 characters) to Hindi. Here's an explanation of the code:
+
+Imports:
+
+from googletrans import Translator: This imports the Translator class from the googletrans library. The Translator class allows you to use Google Translate to perform text translations.
+translate_to_hindi Function:
+
+This function takes one argument, text, which is the English text that you want to translate to Hindi.
+Inside the function:
+translator = Translator(): This creates an instance of the Translator class, which you can use to perform translations.
+translation = translator.translate(text, src='en', dest='hi'): This line uses the translate method of the Translator class to translate the text from English (src='en') to Hindi (dest='hi'). It stores the translation result in the variable translation.
+return translation.text: This returns the translated text.
+mix_languages Function:
+
+This function takes two arguments: text (the input text) and english_fraction (a default value of 0.5, which is not used in the function).
+Inside the function:
+words = text.split(): This splits the input text into a list of words.
+
+mixed_text = "": This initializes an empty string to store the mixed language text.
+
+The loop iterates through each word in the input text:
+
+if len(word) > 3 and len(word) < 8:: This condition checks if the length of the word is between 3 and 7 characters. This condition is used to select short English words for translation.
+
+Inside the conditional block:
+
+hindi_translation = translate_to_hindi(word): This calls the translate_to_hindi function to translate the word to Hindi.
+if hindi_translation == word:: This checks if the Hindi translation is the same as the original word. If they are the same, it means that the word may not have a Hindi equivalent in the translation database.
+If the word can't be translated, the original English word is added to the mixed_text.
+If the word can be translated, the translated Hindi word is added to the mixed_text.
+If the word is longer than 7 characters or shorter than 3 characters, it is not translated, and the original word is added to the mixed_text.
+
+After processing all the words, the function returns the mixed_text.
+
+Example Usage:
+
+english_text = input("Enter English text: "): This prompts the user to enter some English text.
+mixed_text = mix_languages(english_text): This calls the mix_languages function with the user-inputted English text. It will perform the mixing of languages.
+print("Mixed Language Text:", mixed_text): This prints the mixed language text to the console.
+In summary, this code takes an input of English text, translates short English words to Hindi, and returns a mixed language text. The translate_to_hindi function handles the translation, and the mix_languages function manages the overall process.
+
